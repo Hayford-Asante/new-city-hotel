@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+
+    <title>Hotel</title>
+
+<style>
+* { padding: 0; margin: 0; box-sizing: border-box; }
+
+
+.log1 {
+  flex: 0 0 220px;
+  width: 220px;
+}
+
+.main1 {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#sponsors{
+  width: 100%;
+}
+.log1-main {
+  width: 220px;
+  background-color: rgb(245, 211, 216);
+  padding: 16px 14px;
+  border-radius: 8px;
+}
+
+.log1-main hr {
+  width: 80%;
+  margin: 6px auto;
+  border: 0;
+  border-top: 1px solid rgba(0,0,0,0.12);
+}
+
+.log1-main p {
+  font-size: 16px;
+  text-align: center;
+  margin: 8px 0;
+  line-height: 1.3;
+  color: #222;
+}
+
+.log2 {
+  margin: 20px;
+}
+
+.log2 img {
+  width: 100%;
+  max-width: 550px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.log3 {
+    margin: 20px;
+}
+
+.log3 p {
+  font-size: 20px;
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+/* "What sets apart" cards */
+.apart-main {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: rgb(250, 238, 240);
+}
+
+.apart {
+  width: 280px;
+  background: linear-gradient(180deg,#ffffff 0%, #fbfdff 100%);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(16,24,40,0.08);
+  transition: transform .28s ease, box-shadow .28s ease;
+  display: flex;
+  flex-direction: column;
+  margin: 12px;
+  border: 1px solid rgba(15,23,42,0.04);
+}
+
+.apart .media {
+  position: relative;
+  height: 160px;
+  overflow: hidden;
+  background: #f3f4f6;
+}
+
+.apart .media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .6s ease;
+}
+
+/* small badge in the corner */
+.apart .badge {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  background: linear-gradient(90deg,#ffb347,#ff7a5a);
+  color: #fff;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  box-shadow: 0 6px 18px rgba(255,123,77,0.18);
+}
+
+/* body content */
+.apart .content {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 120px;
+}
+
+.apart .title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f1724;
+  line-height: 1.15;
+}
+
+.apart .desc {
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.4;
+  flex: 1;
+  margin-top: 4px;
+}
+
+/* meta row: price + CTA */
+.apart .meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.apart .price {
+  font-weight: 800;
+  color: #059669;
+  font-size: 15px;
+}
+
+.apart .btn-apply {
+  background: #0ea5a4;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 13px;
+  transition: background .18s ease, transform .18s ease;
+}
+
+.apart .btn-apply:hover { background: #05968f; transform: translateY(-2px); }
+
+/* hover effects */
+.apart:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 24px 48px rgba(10,20,40,0.12);
+}
+.apart:hover .media img { transform: scale(1.06); }
+
+/* Small utilities and headings */
+
+.card {
+  border-radius: 20px;
+  box-shadow: rgba(15, 15, 15, 0.2) 0px 2px 8px 0px;
+  background-color: aliceblue;
+  margin: 18px;
+}
+
+.card-img-top {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  width: 255px;
+  justify-content: center;
+  margin: 15px;
+}
+
+.card-text {
+  font-size: 15px;
+  font-family: fantasy;
+}
+
+#head {
+  font-size: 35px;
+  font-style: bold;
+  text-align: center;
+  font-family: fantasy;
+  color: rgb(240, 71, 99);
+  text-shadow: 2px 2px 2px rgb(39, 2, 248);
+}
+
+#head1 {
+  font-size: 20px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(240, 71, 99);
+}
+
+#head3 {
+  font-size: 20px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(240, 71, 99);
+}
+
+/* About / gallery */
+.about { justify-content: center; display: flex; flex-wrap: wrap; }
+
+.content-main {
+  height: 550px;
+  width: 350px;
+  background-color: rgb(153, 162, 172);
+  margin: 10px;
+}
+
+.about-content img {
+  height: 450px;
+  width: 350px;
+}
+
+/* social icons transitions */
+#whatsapp, #facebook, #youtube, #instagram {
+  transition: 1s;
+  margin-left: 15px;
+}
+#whatsapp:hover { transform: translateY(-10px) scale(1.1); color: green; }
+#facebook:hover { transform: translateY(-10px) scale(1.1); color: rgb(12, 12, 175); }
+#youtube:hover { transform: translateY(-10px) scale(1.1); color: rgb(207, 17, 17); }
+#instagram:hover { transform: translateY(-10px) scale(1.1); color: rgb(190, 52, 75); }
+
+/* Footer basics */
+footer li {
+  color: white;
+  margin-top: 20px;
+  display: inline-block;
+  font-size: 20px;
+}
+footer {
+  background-color: black;
+  text-align: center;
+  width: 100%;
+}
+footer a { color: white; text-decoration: none; }
+
+/* Gallery / images */
+.gallery img { width: 380px; height: 360px; margin: 10px; }
+
+.main-image { display: flex; justify-content: center; flex-wrap: wrap; height: fit-content; }
+
+.image img { width: 250px; height: 250px; border-radius: 17px; }
+.image { width: 250px; margin: 12px; border-radius: 17px; }
+
+/* Navbar / misc */
+.navigation p { font-size: 17px; text-align: center; color: white; }
+
+/* Animated featured buildings (subtle float + pan) */
+.main-card { display:flex; justify-content:center; flex-wrap:wrap; gap:18px; overflow:visible; }
+.main-card .card {
+  will-change: transform;
+  animation: floatY 6s ease-in-out infinite;
+  transition: transform .3s, box-shadow .3s;
+  backface-visibility: hidden;
+}
+.main-card .card:nth-child(2){ animation-duration:5.6s; animation-delay:0.1s; }
+.main-card .card:nth-child(3){ animation-duration:6.2s; animation-delay:0.2s; }
+.main-card .card:nth-child(4){ animation-duration:5.8s; animation-delay:0.3s; }
+.main-card .card:nth-child(5){ animation-duration:6.4s; animation-delay:0.4s; }
+.main-card .card:nth-child(6){ animation-duration:5.9s; animation-delay:0.5s; }
+
+.main-card .card-img-top {
+  display:block;
+  width: calc(100% - 30px);
+  margin: 15px;
+  border-radius: 12px;
+  animation: imgPan 12s linear infinite;
+  transform-origin: center;
+}
+
+.main-card .card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: rgba(10, 10, 40, 0.18) 0 14px 40px;
+  z-index: 5;
+}
+
+@keyframes floatY {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+@keyframes imgPan {
+  0%   { transform: translateY(0) scale(1); }
+  50%  { transform: translateY(-6px) scale(1.02); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+/* REPLACEMENT: improved carousel (hero) with nicer slides, overlays and captions */
+.hero-carousel { position: relative; }
+.hero-carousel .carousel-inner { overflow: hidden; }
+.hero-carousel .carousel-item {
+  background-size: cover;
+  background-position: center;
+  min-height: 56vh;
+  height: 60vh;
+  position: relative;
+  display: block;
+}
+/* overlay to improve text contrast */
+.hero-carousel .carousel-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(6,6,23,0.35) 0%, rgba(6,6,23,0.45) 60%, rgba(6,6,23,0.55) 100%);
+  pointer-events: none;
+}
+.carousel-caption-container { position: absolute; inset: 0; display: flex; align-items: center; }
+.carousel-caption { max-width: 720px; color: #fff; padding: 20px; }
+.carousel-title { font-size: clamp(24px, 4.2vw, 48px); font-weight: 800; margin-bottom: 8px; text-shadow: 0 6px 20px rgba(0,0,0,0.45); }
+.carousel-sub { font-size: clamp(14px, 1.6vw, 18px); margin-bottom: 14px; color: rgba(255,255,255,0.92); }
+.carousel-ctas .btn { margin-right: 10px; }
+.carousel-ctas .btn-outline-light { border-color: rgba(255,255,255,0.25); color: rgb(238, 233, 233);}
+.carousel-ctas .btn-outline-light:hover {
+  background-color: black;
+  border-color: rgba(255,255,255,0.5);
+  color: #fff;
+  border: none;
+}
+.carousel-indicators [data-bs-target] { background-color: rgba(255,255,255,0.6); }
+.carousel-indicators .active { background-color: #6b6363; }
+@media (max-width: 768px) {
+  .hero-carousel .carousel-item { height: 48vh; min-height: 320px; }
+  .carousel-caption { padding: 12px; text-align: center; margin: 0 auto; }
+  .carousel-caption-container { justify-content: center; }
+  .carousel-ctas .btn { display: block; width: 100%; margin: 8px 0; }
+}
+
+/* small script: pause on hover for desktop, allow swipe for touch (bootstrap handles swipe) */
+<script>
+(function(){
+  const el = document.getElementById('carouselExampleFade');
+  if (!el) return;
+  // pause on mouse enter (desktop)
+  el.addEventListener('mouseenter', ()=>{ const c = bootstrap.Carousel.getInstance(el) || new bootstrap.Carousel(el); c.pause(); });
+  el.addEventListener('mouseleave', ()=>{ const c = bootstrap.Carousel.getInstance(el) || new bootstrap.Carousel(el); c.cycle(); });
+})();
+</script>
+/* --- image / background fixes --- */
+
+/* ensure carousel background images always cover and are visible */
+.hero-carousel .carousel-item {
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-color: #080808; /* fallback color while image loads */
+  position: relative;
+  background-image: url(luxury-building.jpg);
+}
+
+/* keep overlay below captions */
+.hero-carousel .carousel-overlay { z-index: 1; position: absolute; inset: 0; }
+.carousel-caption-container { z-index: 2; position: absolute; inset: 0; }
+
+/* make sure any <img> used as source does not block background (we remove it via JS) */
+.hero-carousel .carousel-item img { display: none !important; }
+
+/* cards and apart images: ensure they fill their containers and are never hidden */
+.card, .apart { overflow: hidden; }
+.card-img-top, .apart .media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  -o-object-fit: cover;
+}
+
+/* ensure .apart media block provides a consistent height */
+.apart .media { height: 160px; }
+
+/* fix any accidental negative stacking from other elements */
+#whatsapp-widget { z-index: 9999; } /* keeps widget on top but does not block images inside sections */
+
+/* small helper: visible fallback if background-image fails */
+.hero-carousel .carousel-item:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.02);
+  pointer-events: none;
+  z-index: 0;
+}
+</style>
+
+<!-- small script: convert any slide <img> into a background-image and ensure proper stacking -->
+<script>
+  (function(){
+    // Convert slide <img> (used for accessibility/preload) into CSS background-image for the .carousel-item
+    document.querySelectorAll('.hero-carousel .carousel-item').forEach(function(item){
+      // if the item already has a CSS background-image, keep it
+      const hasBg = window.getComputedStyle(item).backgroundImage && window.getComputedStyle(item).backgroundImage !== 'none';
+      if(hasBg) return;
+
+      const img = item.querySelector('img');
+      if(img && img.getAttribute('src')) {
+        const src = img.getAttribute('src');
+        // set background-image safely (escape single quotes)
+        item.style.backgroundImage = "url('" + src.replace(/'/g, "%27") + "')";
+        // remove the img (it was only for preload / accessibility). Keep alt text by transferring to aria-label
+        if(img.getAttribute('alt')) item.setAttribute('aria-label', img.getAttribute('alt'));
+        img.remove();
+      }
+    });
+
+    // Make sure non-carousel images use object-fit (for older browsers fallback)
+    document.querySelectorAll('img').forEach(function(i){
+      // nothing destructive — just ensure visible images aren't accidentally hidden
+      i.style.maxWidth = i.style.maxWidth || '100%';
+      i.style.height = i.style.height || 'auto';
+    });
+  })();
+</script>
+</head>
+<body>
+<!-- REPLACE the standalone SVG with this navbar (contains the logo inside the nav) -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+  <div class="container" style="background-color: rgb(214, 214, 228)">
+    <a class="navbar-brand d-flex align-items-center" href="#" aria-label="City Hill Home">
+      <!-- inline SVG logo (smaller) -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" role="img" aria-label="City Hill Real Estate Logo" width="160" style="height:auto;display:block;margin-right:12px;">
+        <defs>
+          <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0" stop-color="#FFD27A"/>
+            <stop offset="1" stop-color="#FF9A4D"/>
+          </linearGradient>
+        </defs>
+
+        <!-- skyline -->
+        <g transform="translate(20,20)">
+          <rect x="0" y="60" width="18" height="70" rx="2" fill="#2E3A59"/>
+          <rect x="26" y="40" width="24" height="90" rx="2" fill="#2E3A59"/>
+          <rect x="56" y="20" width="30" height="110" rx="2" fill="#2E3A59"/>
+          <rect x="92" y="48" width="20" height="82" rx="2" fill="#2E3A59"/>
+          <rect x="116" y="62" width="14" height="68" rx="2" fill="#2E3A59"/>
+        </g>
+
+        <!-- sun -->
+        <circle cx="180" cy="40" r="28" fill="url(#g1)" opacity="0.95"/>
+
+        <!-- hill -->
+        <path d="M0 150 Q120 70 300 150 T600 150 L600 200 L0 200 Z" fill="#6FBF73"/>
+
+        <!-- text -->
+        <text x="320" y="90" font-family="Montserrat, Arial, sans-serif" font-weight="700" font-size="28" fill="#1E293B">City Hill</text>
+        <text x="320" y="125" font-family="Montserrat, Arial, sans-serif" font-weight="500" font-size="12" fill="#475569">Real Estate</text>
+      </svg>
+
+      <span class="d-none d-lg-inline-block fw-bold">City Hill Real Estate</span>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center" style="font-family: fantasy;">
+        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#head">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#head3">Apartments</a></li>
+        <li class="nav-item"><a class="nav-link" href="#New">Rooms</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contacts">Contact Us</a></li>
+        <li class="nav-item ms-lg-3">
+          <a class="btn btn-outline-primary btn-sm" href="tel:+233534396434" aria-label="Call City Hill">Call: +233 53 439 6434</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- REPLACEMENT: improved carousel (hero) with nicer slides, overlays and captions -->
+<section>
+  <div id="carouselExampleFade" class="carousel slide carousel-fade hero-carousel" data-bs-ride="carousel" data-bs-interval="5000" aria-label="City Hill hero carousel">
+    <!-- indicators -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+
+    <div class="carousel-inner">
+      <!-- Slide 1 -->
+      <div class="carousel-item active" style="background-image: url('luxury-building.jpg');background-size: cover;>
+        <!-- invisible img for preloading & accessibility -->
+        <img src="" class="d-none" alt="City Hill skyline">
+        <div class="carousel-overlay"></div>
+        <div class="carousel-caption-container container">
+          <div class="carousel-caption text-start">
+            <h1 class="carousel-title">Unrivaled Living Experience</h1>
+            <p class="carousel-sub">Luxury apartments in the heart of Cantoment — modern design, green spaces, secure living.</p>
+            <div class="carousel-ctas">
+              <a href="#head3" class="btn btn-primary btn-lg">View Apartments</a>
+              <a href="#New" class="btn btn-outline-light btn-lg">See Rooms</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="carousel-item" style="background-image: url('pexels-anaussieinvietnam-34973977.jpg');background-size: cover;>
+        <img src="" class="d-none" alt="City Hill amenities">
+        <div class="carousel-overlay"></div>
+        <div class="carousel-caption-container container">
+          <div class="carousel-caption text-start">
+            <h1 class="carousel-title">Amenities for Every Lifestyle</h1>
+            <p class="carousel-sub">Pools, sports areas, secure parking and landscaped courtyards for family living.</p>
+            <div class="carousel-ctas">
+              <a href="#head1" class="btn btn-primary btn-lg">What Sets Us Apart</a>
+              <a href="#Contact" class="btn btn-outline-light btn-lg">Contact Us</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="carousel-item" style="background-image: url('pexels-pavel-danilyuk-8425453.jpg');background-size: cover;>
+        <img src="pexels-jimmyjimmy-1725385.jpg" class="d-none" alt="City Hill interiors">
+        <div class="carousel-overlay"></div>
+        <div class="carousel-caption-container container">
+          <div class="carousel-caption text-start">
+            <h1 class="carousel-title">Move In — Feel At Home</h1>
+            <p class="carousel-sub">Thoughtful finishes, spacious layouts and convenient location — schedule a tour today.</p>
+            <div class="carousel-ctas">
+              <a href="#sponsors" class="btn btn-primary btn-lg">Apply Now</a>
+              <a href="https://wa.me/233534396434?text=I%20would%20like%20to%20book%20a%20tour" target="_blank" class="btn btn-outline-light btn-lg" rel="noopener">Chat on WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev" aria-label="Previous slide">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next" aria-label="Next slide">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</section>
+
+<br><br>
+<div class="main">
+<h1 id="head">UNRIVALED LIVING EXPERIENCE </h1>
+<div class="main1">
+
+
+<div class="log2">
+<img src="pexels-khwanchai-4161619.jpg" alt="">  
+</div>  
+<div class="log3">
+<p style="color: rgb(243, 71, 100); font-size: 25px;font-weight: bolder;">Why choose City Hill</p>
+<p style="color: black;font-size: 15px;font-family: Arial, Helvetica, sans-serif;">The City Hill resident is an afropolitan community <br>
+  of luxery apartment in the heart Cantoment,Accra.<br> 
+  Design with a focus on luxery,convenience and<br>
+   beautificial architecture.City Hill is a relaxing <br>
+  oasis,surrounded by the stunning beauty of the Cantoment <br>
+  cityscape.The resident offers nine stories of spaciuos <br>
+   living,green light, modern amenities,superb finishes <br>
+   and cultural symbolism.Return from your daily <br>
+   activities to your privaye refuge and experience <br>
+  the carefree ease of luxery living at City Hill.</p>  
+</div>
+<br>
+
+</div>
+</div>
+<br>
+<div class="" style="background-color: rgb(250, 238, 240);">
+  <br><br>
+<h1 id="head1" style="font-family: fantasy;">WHAT SETS CITY HILL APART</h1>
+<div class="apart-main">
+<div class="apart">
+  <div class="media">
+    <img src="pexels-brett-sayles-1756957.jpg" alt="Parking area">
+    <span class="badge">Featured</span>
+  </div>
+  <div class="content">
+    <div class="title">Well Ordered Car Parking</div>
+    <div class="desc">Comfortable on-ground and underground parking for residents — 160 total spaces in the complex for secure, easy access.</div>
+    <div class="meta">
+      <div class="price">From ¢120 / mo</div>
+      <!-- changed: open modal instead of location.href -->
+      <a href="#sponsors"><button type="button" class="btn-apply" data-bs-toggle="modal" data-bs-target="#applyModal">Apply Now</button></a>
+    </div>
+  </div>
+</div>
+
+<div class="apart">
+  <div class="media">
+    <img src="pexels-kevin-malik-9031645.jpg" alt="">
+    <span class="badge">New</span>
+  </div>
+  <div class="content">
+    <div class="title">Recreation And Green  Spaces</div>
+    <div class="desc">Abundant green spaces and recreational areas designed for relaxation and community activities.</div>
+    <div class="meta">
+      <div class="price">From ¢150 / mo</div>
+      <a href="#sponsors"><button type="button" class="btn-apply" data-bs-toggle="modal" data-bs-target="#applyModal">Apply Now</button></a>
+    </div>
+  </div>
+</div>
+
+<div class="apart">
+  <div class="media">
+    <img src="pexels-dwi-candra-2154954319-34406403.jpg" alt="">
+    <span class="badge">Secure</span>
+  </div>
+  <div class="content">
+    <div class="title">Safety 24/7</div>
+    <div class="desc">Comprehensive security measures including 24-hour surveillance and controlled access.</div>
+    <div class="meta">
+      <div class="price">From ¢100 / mo</div>
+      <a href="#sponsors"><button type="button" class="btn-apply" data-bs-toggle="modal" data-bs-target="#applyModal">Apply Now</button></a>
+    </div>
+  </div>
+</div>
+
+<div class="apart">
+  <div class="media">
+    <img src="pexels-pnw-prod-8980698.jpg" alt="">
+    <span class="badge">Active</span>
+  </div>
+  <div class="content">
+    <div class="title">Sports Spaces</div>
+    <div class="desc">Facilities for various sports including basketball courts and fitness areas to maintain an active lifestyle.</div>
+    <div class="meta">
+      <div class="price">From ¢130 / mo</div>
+     <a href="#sponsors"><button type="button" class="btn-apply" data-bs-toggle="modal" data-bs-target="#applyModal">Apply Now</button></a>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<br>
+<H2 id="head3" style="font-family: fantasy" >SOME OF OUR FEATURED BUILDINGS</H2>
+
+<div class="main-card" style="display: flex; justify-content: center; flex-wrap: wrap;">
+<div class="card" style="width: 18rem;height: 18rem">
+  <img src="pexels-expect-best-79873-323780.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text">Five bedroom story building for rent in East Lagon</div>
+</div>
+
+<div class="card" style="width: 18rem;height: 18rem">
+  <img src="pexels-binyaminmellish-106399.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text">Five bedroom story building for rent in East Lagon</div>
+</div>
+
+<div class="card" style="width: 18rem;height: 18rem">
+  <img src="pexels-william-lemond-25283-105933.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text">Five bedroom story building for rent in East Lagon</div>
+</div>
+
+  <div class="card" style="width: 18rem;height: 17rem;">
+  <img src="pexels-pixabay-164558.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text">Three bedroom house for sale in Tema Comm.25</div>
+</div>
+
+<div class="card" style="width: 18rem;height: 18.5rem">
+  <img src="pexels-pixabay-164522.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text">Four bedroom house for sale in Cantoment</div>
+</div>
+
+
+<div class="card" style="width: 18rem;height: 18rem">
+  <img src="pexels-heyho-8134847.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text">Two bedroom apartment for rent in Spintex</div>
+</div>
+</div>
+<section aria-label="Newest products">
+  <div class="container py-4">
+    <h2 id="New" class="mb-3">Rooms</h2>
+
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+
+        <div class="carousel-item active">
+          <div class="d-flex justify-content-center flex-wrap" style="background-color:#e6e3e3;padding:20px;">
+            <div class="image m-2"><img src="1.jpg" alt="" class="img-fluid rounded" style="width:250px;height:250px;object-fit:cover;"></div>
+            <div class="image m-2"><img src="3.jpg" alt="" class="img-fluid rounded" style="width:250px;height:250px;object-fit:cover;"></div>
+            <div class="image m-2"><img src="4.jpg" alt="" class="img-fluid rounded" style="width:250px;height:250px;object-fit:cover;"></div>
+            <div class="image m-2"><img src="5.jpg" alt="" class="img-fluid rounded" style="width:250px;height:250px;object-fit:cover;"></div>
+          </div>
+         
+        </div>
+
+        <div class="carousel-item">
+          <div class="d-flex justify-content-center flex-wrap" style="background-color:#e6e3e3;padding:20px;">
+            <div class="image m-2"><img src="6.jpg" alt="" class="img-fluid rounded" style="width:250px;height:250px;object-fit:cover;"></div>
+            <div class="image m-2"><img src="7.jpg" alt="" class="img-fluid rounded" style="width:250px;height:250px;object-fit:cover;"></div>
+            <div class="image m-2"><img src="8.jpg" alt="" class="img-fluid rounded" style="width:250px;height:250px;object-fit:cover;"></div>
+            <div class="image m-2"><img src="pexels-cottonbro-6263973.jpg" alt="" class="img-fluid rounded" style="width:250px;height:250px;object-fit:cover;"></div>
+          </div>
+        
+        </div>
+
+ <div class="carousel-item">
+          <div class="d-flex justify-content-center flex-wrap" style="background-color:#e6e3e3;padding:20px;">
+            <div class="image m-2"><img src="88.jpeg" alt="" class="img-fluid rounded" style="width:250px;height:250px;object-fit:cover;"></div>
+            <div class="image m-2"><img src="pexels-pixabay-262047.jpg" alt="" class="img-fluid rounded" style="width:250px;height:250px;object-fit:cover;"></div>
+            <div class="image m-2"><img src="Moor-Hall-Hotel-Spa-Hot-Tub-Room-188__FocusFillWyIwLjAwIiwiMC4wMCIsMTkyMCw4OTJd_ScaleMaxWidthWzE5MjBd.jpg" alt="" class="img-fluid rounded" style="width:250px;height:250px;object-fit:cover;"></div>
+            <div class="image m-2"><img src="istockphoto-653447274-612x612.jpg" alt="" class="img-fluid rounded" style="width:250px;height:250px;object-fit:cover;"></div>
+          </div>
+        
+        </div>
+
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+</section>
+<img src="sponsors.png" id="sponsors">
+  <script type="text/javascript" src="https://form.jotform.com/jsform/252203226863553"></script>
+
+    </section>                   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  
+<style>
+
+/* --- Footer styles --- */
+.site-footer{
+  background: linear-gradient(180deg,#07103a,#000);
+  color:#fff;
+  padding:40px 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.site-footer .footer-top{
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  gap:30px;
+  align-items:flex-start;
+  justify-content:space-between;
+  flex-wrap:wrap;
+}
+
+.site-footer p { color: #cbd5e1; margin: 6px 0; font-size: 14px; }
+.footer-links ul { list-style: none; padding: 0; margin: 0; }
+.footer-links li { margin: 6px 0; }
+.footer-links a {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 14px;
+}
+.footer-links a:hover { color: #ffffff; text-decoration: underline; }
+
+
+.footer-brand{ max-width:260px; }
+.footer-brand img{ width:140px; display:block; }
+.footer-desc{ margin-top:12px; color:#cfcfcf; font-size:14px; line-height:1.6; }
+.footer-widgets{ display:flex; gap:30px; flex:1; justify-content:space-between; flex-wrap:wrap; }
+.widget{ min-width:160px; }
+.widget h4{ color:#fff; margin-bottom:10px; font-size:18px; }
+.widget p, .widget a{ color:#cfcfcf; text-decoration:none; margin-bottom:6px; font-size:14px; display:block; }
+.widget a:hover{ text-decoration:underline; color:#fff; }
+
+.social-icons{ margin-top:14px; }
+.social-icons a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:40px;height:40px;border-radius:50%;
+  background:#fff;color:#07103a;margin-right:8px;text-decoration:none;font-size:16px;
+}
+.newsletter form{ display:flex; gap:8px; margin-top:8px; }
+.newsletter input[type="email"]{ padding:10px;border-radius:6px;border:none;flex:1; min-width:0; }
+.newsletter button{ padding:10px 14px;border-radius:6px;border:none;background:#ffb400;color:#07103a;font-weight:700;cursor:pointer; }
+
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,0.06);
+  margin-top:24px;
+  padding-top:18px;
+  font-size:13px;
+  color:#bfbfbf;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  align-items:center;
+  max-width:1200px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* Responsive */
+@media (max-width:700px){
+  .site-footer .footer-top{ flex-direction:column; align-items:center; text-align:center; }
+  .footer-widgets{ width:100%; justify-content:center; gap:18px; }
+  .footer-bottom{ flex-direction:column; gap:8px; }
+  .newsletter form{ flex-direction:column; }
+  .social-icons a{ margin:6px; }
+}
+
+
+</style>
+<body>
+<!-- ...existing code... -->
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <!-- <img src="http://www.w3.org/2000/svg" alt="Royal Hotel logo"> -->
+       <div style="margin-left: 50px;">
+       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" role="img" aria-label="City Hill Real Estate Logo" width="160" style="height:auto;display:block;margin-right:12px;">
+  <defs>
+    <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#FFD27A"/>
+      <stop offset="1" stop-color="#FF9A4D"/>
+    </linearGradient>
+
+    <!-- Drop shadow filter -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-color="black" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- skyline -->
+  <g transform="translate(20,20)">
+    <rect x="0" y="60" width="18" height="70" rx="2" fill="#2E3A59"/>
+    <rect x="26" y="40" width="24" height="90" rx="2" fill="#2E3A59"/>
+    <rect x="56" y="20" width="30" height="110" rx="2" fill="#2E3A59"/>
+    <rect x="92" y="48" width="20" height="82" rx="2" fill="#2E3A59"/>
+    <rect x="116" y="62" width="14" height="68" rx="2" fill="#2E3A59"/>
+  </g>
+
+  <!-- sun -->
+  <circle cx="180" cy="40" r="28" fill="url(#g1)" opacity="0.95"/>
+
+  <!-- hill -->
+  <path d="M0 150 Q120 70 300 150 T600 150 L600 200 L0 200 Z" fill="#6FBF73"/>
+
+  <!-- text with drop shadow -->
+  <text x="320" y="90" font-family="Montserrat, Arial, sans-serif" font-weight="700" font-size="28" fill="#FFFFFF" filter="url(#shadow)">City Hill</text>
+  <text x="320" y="125" font-family="Montserrat, Arial, sans-serif" font-weight="500" font-size="12" fill="#FFFFFF" filter="url(#shadow)">Real Estate</text>
+</svg>
+
+       </div>
+      <p class="footer-desc">City Hill — Comfort, elegance and exceptional service in the heart of Accra. Welcome to your home away from home.</p>
+      <div class="social-icons" aria-label="Social links">
+        <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://wa.me/12034396434" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-widgets">
+      <div class="widget">
+        <h4 id="contacts">Contact</h4>
+        <p>Bookings &amp; Enquiries</p>
+        <p><a href="tel:0534396434">053-439-6434</a></p>
+        <p><a href="mailto:info@cityhill.com">info@cityhill.com</a></p>
+        <p>Comm.22 Street, Portland VIC 3300</p>
+      </div>
+
+  <div class="footer-links">
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#head">About</a></li>
+        <li><a href="#head3">Apartments</a></li>
+        <li><a href="#New">Rooms</a></li>
+        </ul>
+    </div>
+
+      <div class="widget newsletter">
+        <h4>Newsletter</h4>
+        <p>Get special offers & updates.</p>
+        <form onsubmit="event.preventDefault(); alert('Thanks — you are subscribed!');">
+          <input type="email" placeholder="Your email" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>© <span id="year"></span> City Hill. All rights reserved.</div>
+    <div>Designed by City Hill</div>
+  </div>
+</footer>
+
+<script src="https://cdn.commoninja.com/sdk/latest/commonninja.js" defer></script>
+<div class="commonninja_component pid-24a47a69-4f40-4ae1-99a1-7dde13204cab"></div>
+
+<script src="https://cdn.commoninja.com/sdk/latest/commonninja.js" defer></script>
+<div class="commonninja_component pid-24a47a69-4f40-4ae1-99a1-7dde13204cab"></div>
+
+<!-- Elfsight WhatsApp Chat | Untitled WhatsApp Chat -->
+<script src="https://elfsightcdn.com/platform.js" async></script>
+<div class="elfsight-app-089ded3e-8de3-479e-9c27-fa8e4be26642" data-elfsight-app-lazy></div>
+
+
+</body>
+</html>
