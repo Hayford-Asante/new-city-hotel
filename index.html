@@ -5,10 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
-
+<!-- Google Fonts: Montserrat and Inter -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
     <title>Hotel</title>
 
 <style>
+  /* 1. Set the baseline font for the entire website body */
+body {
+    font-family: 'Inter', sans-serif;
+    color: #2c3e50;
+    background-color: #faf9f7;
+}
+
+/* 2. Fix the Navigation typography (Remove "fantasy") */
+.navbar-collapse ul {
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+/* 3. Main Hero & Section Headings */
+#head {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 42px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #1a3a3a;
+    background: linear-gradient(135deg, #1a3a3a 0%, #2d5f5f 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+}
+
+#head1, #head3, #New {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    letter-spacing: 0.5px;
+    color: #1a3a3a;
+}
+
+/* 4. "Why Choose City Hill" Section Typography */
+.log3 p:first-child {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.log3 p {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #475569;
+}
+
+/* 5. What Sets Us Apart & Feature Cards Typography */
+.apart .title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.apart .desc, .card-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: #475569;
+}
+
+.apart .badge, .apart .btn-apply, .carousel-title {
+    font-family: 'Montserrat', sans-serif;
+}
 * { padding: 0; margin: 0; box-sizing: border-box; }
 
 
@@ -28,16 +96,17 @@
 }
 .log1-main {
   width: 220px;
-  background-color: rgb(245, 211, 216);
+  background: linear-gradient(135deg, #f5f0eb 0%, #ede6df 100%);
   padding: 16px 14px;
   border-radius: 8px;
+  border: 1px solid #e8ddd3;
 }
 
 .log1-main hr {
   width: 80%;
   margin: 6px auto;
   border: 0;
-  border-top: 1px solid rgba(0,0,0,0.12);
+  border-top: 2px solid #d4af37;
 }
 
 .log1-main p {
@@ -45,7 +114,9 @@
   text-align: center;
   margin: 8px 0;
   line-height: 1.3;
-  color: #222;
+  color: #2c3e50;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
 }
 
 .log2 {
@@ -67,8 +138,9 @@
 .log3 p {
   font-size: 20px;
   text-align: left;
-  font-family: Arial, Helvetica, sans-serif;
-
+  font-family: 'Inter', sans-serif;
+  color: #2c3e50;
+  line-height: 1.6;
 }
 
 /* "What sets apart" cards */
@@ -76,12 +148,12 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  background-color: rgb(250, 238, 240);
+  background: linear-gradient(180deg, #faf9f7 0%, #f5f0eb 100%);
 }
 
 .apart {
   width: 280px;
-  background: linear-gradient(180deg,#ffffff 0%, #fbfdff 100%);
+  background: linear-gradient(180deg,#ffffff 0%, #faf9f7 100%);
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 8px 30px rgba(16,24,40,0.08);
@@ -89,7 +161,7 @@
   display: flex;
   flex-direction: column;
   margin: 12px;
-  border: 1px solid rgba(15,23,42,0.04);
+  border: 1px solid #e8ddd3;
 }
 
 .apart .media {
@@ -112,13 +184,14 @@
   position: absolute;
   left: 12px;
   top: 12px;
-  background: linear-gradient(90deg,#ffb347,#ff7a5a);
-  color: #fff;
+  background: linear-gradient(90deg, #d4af37, #e8c45a);
+  color: #1a3a3a;
   font-size: 12px;
   padding: 6px 10px;
   border-radius: 999px;
   font-weight: 700;
-  box-shadow: 0 6px 18px rgba(255,123,77,0.18);
+  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.25);
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* body content */
@@ -133,8 +206,9 @@
 .apart .title {
   font-size: 18px;
   font-weight: 700;
-  color: #0f1724;
+  color: #1a3a3a;
   line-height: 1.15;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .apart .desc {
@@ -156,12 +230,12 @@
 
 .apart .price {
   font-weight: 800;
-  color: #059669;
+  color: #d4af37;
   font-size: 15px;
 }
 
 .apart .btn-apply {
-  background: #0ea5a4;
+  background: #2d7f6f;
   color: #fff;
   border: none;
   padding: 8px 12px;
@@ -170,13 +244,15 @@
   font-weight: 700;
   font-size: 13px;
   transition: background .18s ease, transform .18s ease;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.apart .btn-apply:hover { background: #05968f; transform: translateY(-2px); }
+.apart .btn-apply:hover { background: #1a4d45; transform: translateY(-2px); }
 
 /* hover effects */
-.apart:hover {
-  transform: translateY(-10px);
+/* Modified hover styles to avoid interrupting the active animation class definitions */
+.apart.scroll-reveal-active:hover {
+  transform: translateY(-10px) rotateX(0deg) !important;
   box-shadow: 0 24px 48px rgba(10,20,40,0.12);
 }
 .apart:hover .media img { transform: scale(1.06); }
@@ -185,9 +261,10 @@
 
 .card {
   border-radius: 20px;
-  box-shadow: rgba(15, 15, 15, 0.2) 0px 2px 8px 0px;
-  background-color: aliceblue;
+  box-shadow: rgba(15, 15, 15, 0.08) 0px 8px 30px 0px;
+  background-color: #fff;
   margin: 18px;
+  border: 1px solid #e8ddd3;
 }
 
 .card-img-top {
@@ -200,30 +277,34 @@
 
 .card-text {
   font-size: 15px;
-  font-family: fantasy;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: #2c3e50;
 }
 
 #head {
-  font-size: 35px;
-  font-style: bold;
+  font-size: 42px;
+  font-weight: bold;
   text-align: center;
-  font-family: fantasy;
-  color: rgb(240, 71, 99);
-  text-shadow: 2px 2px 2px rgb(39, 2, 248);
+  font-family: 'Montserrat', sans-serif;
+  color: #1a3a3a;
+  text-shadow: none;
 }
 
 #head1 {
-  font-size: 20px;
+  font-size: 28px;
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  color: rgb(240, 71, 99);
+  color: #1a3a3a;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
 }
 
 #head3 {
-  font-size: 20px;
+  font-size: 28px;
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  color: rgb(240, 71, 99);
+  color: #1a3a3a;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
 }
 
 /* About / gallery */
@@ -232,8 +313,10 @@
 .content-main {
   height: 550px;
   width: 350px;
-  background-color: rgb(153, 162, 172);
+  background: linear-gradient(135deg, #e8ddd3 0%, #f5f0eb 100%);
   margin: 10px;
+  border-radius: 12px;
+  border: 1px solid #ddd0c3;
 }
 
 .about-content img {
@@ -259,7 +342,7 @@ footer li {
   font-size: 20px;
 }
 footer {
-  background-color: black;
+  background: linear-gradient(135deg, #1a3a3a 0%, #2d5f5f 100%);
   text-align: center;
   width: 100%;
 }
@@ -299,8 +382,9 @@ footer a { color: white; text-decoration: none; }
   transform-origin: center;
 }
 
-.main-card .card:hover {
-  transform: translateY(-10px) scale(1.03);
+/* Modified hover style to prevent overlapping issues with the custom active engine values */
+.main-card .card.scroll-reveal-active:hover {
+  transform: translateY(-10px) scale(1.03) rotateX(0deg) !important;
   box-shadow: rgba(10, 10, 40, 0.18) 0 14px 40px;
   z-index: 5;
 }
@@ -338,7 +422,17 @@ footer a { color: white; text-decoration: none; }
 .carousel-caption { max-width: 720px; color: #fff; padding: 20px; }
 .carousel-title { font-size: clamp(24px, 4.2vw, 48px); font-weight: 800; margin-bottom: 8px; text-shadow: 0 6px 20px rgba(0,0,0,0.45); }
 .carousel-sub { font-size: clamp(14px, 1.6vw, 18px); margin-bottom: 14px; color: rgba(255,255,255,0.92); }
-.carousel-ctas .btn { margin-right: 10px; }
+.carousel-ctas .btn-primary {
+  background-color: #2d7f6f;
+  border-color: #2d7f6f;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+.carousel-ctas .btn-primary:hover {
+  background-color: #1a4d45;
+  border-color: #1a4d45;
+}
 .carousel-ctas .btn-outline-light { border-color: rgba(255,255,255,0.25); color: rgb(238, 233, 233);}
 .carousel-ctas .btn-outline-light:hover {
   background-color: black;
@@ -346,8 +440,8 @@ footer a { color: white; text-decoration: none; }
   color: #fff;
   border: none;
 }
-.carousel-indicators [data-bs-target] { background-color: rgba(255,255,255,0.6); }
-.carousel-indicators .active { background-color: #6b6363; }
+.carousel-indicators [data-bs-target] { background-color: rgba(255, 255, 255, 0.7); }
+.carousel-indicators .active { background-color: #d4af37; }
 @media (max-width: 768px) {
   .hero-carousel .carousel-item { height: 48vh; min-height: 320px; }
   .carousel-caption { padding: 12px; text-align: center; margin: 0 auto; }
@@ -355,16 +449,7 @@ footer a { color: white; text-decoration: none; }
   .carousel-ctas .btn { display: block; width: 100%; margin: 8px 0; }
 }
 
-/* small script: pause on hover for desktop, allow swipe for touch (bootstrap handles swipe) */
-<script>
-(function(){
-  const el = document.getElementById('carouselExampleFade');
-  if (!el) return;
-  // pause on mouse enter (desktop)
-  el.addEventListener('mouseenter', ()=>{ const c = bootstrap.Carousel.getInstance(el) || new bootstrap.Carousel(el); c.pause(); });
-  el.addEventListener('mouseleave', ()=>{ const c = bootstrap.Carousel.getInstance(el) || new bootstrap.Carousel(el); c.cycle(); });
-})();
-</script>
+
 /* --- image / background fixes --- */
 
 /* ensure carousel background images always cover and are visible */
@@ -409,6 +494,76 @@ footer a { color: white; text-decoration: none; }
   pointer-events: none;
   z-index: 0;
 }
+
+
+/* ==========================================================================
+   INTEGRATED 3D SCROLL REVEAL ANIMATION ARCHITECTURE
+   ========================================================================== */
+
+/* 1. Global structural perspective context setup over container elements */
+.main1, .apart-main, .main-card, .carousel-inner {
+  perspective: 1400px;
+}
+
+/* 2. Target Classes Initial State: Hidden, translated downward, tilted back in 3D space */
+.log2, .log3, .apart, .main-card .card, #carouselExampleControls .carousel-item {
+  opacity: 0;
+  transform: translateY(60px) rotateX(-20deg);
+  transform-origin: top center;
+  
+  /* Hardware graphic acceleration instruction for crisp animations on mobile screens */
+  will-change: transform, opacity;
+  
+  /* Fine-tuned cubic-bezier settings matching the smooth reveal experience */
+  transition: 
+    opacity 0.85s cubic-bezier(0.215, 0.610, 0.355, 1.000),
+    transform 1.15s cubic-bezier(0.175, 0.885, 0.320, 1.150);
+}
+
+/* 3. Destination Active State: Normalized geometry, complete visibility */
+.log2.scroll-reveal-active, 
+.log3.scroll-reveal-active, 
+.apart.scroll-reveal-active, 
+.main-card .card.scroll-reveal-active,
+#carouselExampleControls .carousel-item.scroll-reveal-active {
+  opacity: 1;
+  transform: translateY(0) rotateX(0deg);
+}
+
+/* 4. Accessibility fallback path for visitors with system-level reduced-motion options */
+@media (prefers-reduced-motion: reduce) {
+  .log2, .log3, .apart, .main-card .card, #carouselExampleControls .carousel-item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Custom Button Styling */
+.btn-primary {
+  background-color: #2d7f6f;
+  border-color: #2d7f6f;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+.btn-primary:hover {
+  background-color: #1a4d45;
+  border-color: #1a4d45;
+}
+
+.btn-outline-primary {
+  color: #2d7f6f;
+  border-color: #2d7f6f;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+.btn-outline-primary:hover {
+  background-color: #2d7f6f;
+  border-color: #2d7f6f;
+  color: #fff;
+}
 </style>
 
 <!-- small script: convert any slide <img> into a background-image and ensure proper stacking -->
@@ -443,14 +598,14 @@ footer a { color: white; text-decoration: none; }
 <body>
 <!-- REPLACE the standalone SVG with this navbar (contains the logo inside the nav) -->
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-  <div class="container" style="background-color: rgb(214, 214, 228)">
+  <div class="container" style="background: linear-gradient(90deg, #faf9f7 0%, #f5f0eb 100%);">
     <a class="navbar-brand d-flex align-items-center" href="#" aria-label="City Hill Home">
       <!-- inline SVG logo (smaller) -->
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" role="img" aria-label="City Hill Real Estate Logo" width="160" style="height:auto;display:block;margin-right:12px;">
         <defs>
           <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0" stop-color="#FFD27A"/>
-            <stop offset="1" stop-color="#FF9A4D"/>
+            <stop offset="0" stop-color="#d4af37"/>
+            <stop offset="1" stop-color="#b8941e"/>
           </linearGradient>
         </defs>
 
@@ -470,6 +625,7 @@ footer a { color: white; text-decoration: none; }
         <path d="M0 150 Q120 70 300 150 T600 150 L600 200 L0 200 Z" fill="#6FBF73"/>
 
         <!-- text -->
+        <path d="M0 150 Q120 70 300 150 T600 150 L600 200 L0 200 Z" fill="#6FBF73"/>
         <text x="320" y="90" font-family="Montserrat, Arial, sans-serif" font-weight="700" font-size="28" fill="#1E293B">City Hill</text>
         <text x="320" y="125" font-family="Montserrat, Arial, sans-serif" font-weight="500" font-size="12" fill="#475569">Real Estate</text>
       </svg>
@@ -482,7 +638,7 @@ footer a { color: white; text-decoration: none; }
     </button>
 
     <div class="collapse navbar-collapse" id="mainNav">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center" style="font-family: fantasy;">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center";>
         <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="#head">About</a></li>
         <li class="nav-item"><a class="nav-link" href="#head3">Apartments</a></li>
@@ -508,7 +664,7 @@ footer a { color: white; text-decoration: none; }
 
     <div class="carousel-inner">
       <!-- Slide 1 -->
-      <div class="carousel-item active" style="background-image: url('luxury-building.jpg');background-size: cover;>
+      <div class="carousel-item active" style="background-image: url('luxury-building.jpg');background-size: cover;">
         <!-- invisible img for preloading & accessibility -->
         <img src="" class="d-none" alt="City Hill skyline">
         <div class="carousel-overlay"></div>
@@ -525,7 +681,7 @@ footer a { color: white; text-decoration: none; }
       </div>
 
       <!-- Slide 2 -->
-      <div class="carousel-item" style="background-image: url('pexels-anaussieinvietnam-34973977.jpg');background-size: cover;>
+      <div class="carousel-item" style="background-image: url('pexels-anaussieinvietnam-34973977.jpg');background-size: cover;">
         <img src="" class="d-none" alt="City Hill amenities">
         <div class="carousel-overlay"></div>
         <div class="carousel-caption-container container">
@@ -541,7 +697,7 @@ footer a { color: white; text-decoration: none; }
       </div>
 
       <!-- Slide 3 -->
-      <div class="carousel-item" style="background-image: url('pexels-pavel-danilyuk-8425453.jpg');background-size: cover;>
+      <div class="carousel-item" style="background-image: url('pexels-pavel-danilyuk-8425453.jpg');background-size: cover;">
         <img src="pexels-jimmyjimmy-1725385.jpg" class="d-none" alt="City Hill interiors">
         <div class="carousel-overlay"></div>
         <div class="carousel-caption-container container">
@@ -579,26 +735,28 @@ footer a { color: white; text-decoration: none; }
 <img src="pexels-khwanchai-4161619.jpg" alt="">  
 </div>  
 <div class="log3">
-<p style="color: rgb(243, 71, 100); font-size: 25px;font-weight: bolder;">Why choose City Hill</p>
-<p style="color: black;font-size: 15px;font-family: Arial, Helvetica, sans-serif;">The City Hill resident is an afropolitan community <br>
-  of luxery apartment in the heart Cantoment,Accra.<br> 
-  Design with a focus on luxery,convenience and<br>
-   beautificial architecture.City Hill is a relaxing <br>
-  oasis,surrounded by the stunning beauty of the Cantoment <br>
-  cityscape.The resident offers nine stories of spaciuos <br>
-   living,green light, modern amenities,superb finishes <br>
-   and cultural symbolism.Return from your daily <br>
-   activities to your privaye refuge and experience <br>
-  the carefree ease of luxery living at City Hill.</p>  
+<p style="color: #1a3a3a; font-size: 25px; font-weight: bold; font-family: 'Montserrat', sans-serif;">Why choose City Hill</p>
+
+<p style="color: #2c3e50; font-size: 15px; font-family: 'Inter', sans-serif;">The City Hill resident is an afropolitan community
+   of luxery apartment in the heart Cantoment,Accra. 
+   Design with a focus on luxery,convenience and
+   beautificial architecture.City Hill is a relaxing 
+   oasis,surrounded by the stunning beauty of the Cantoment 
+   cityscape.The resident offers nine stories of spaciuos 
+   living,green light, modern amenities,superb finishes 
+   and cultural symbolism.Return from your daily 
+   activities to your privaye refuge and experience 
+  the carefree ease of luxery living at City Hill.</p>
+
 </div>
 <br>
 
 </div>
 </div>
 <br>
-<div class="" style="background-color: rgb(250, 238, 240);">
+<div class="" style="background: linear-gradient(180deg, #faf9f7 0%, #f5f0eb 100%);">
   <br><br>
-<h1 id="head1" style="font-family: fantasy;">WHAT SETS CITY HILL APART</h1>
+<h1 id="head1" style="font-family: 'Montserrat', sans-serif; font-size: 28px; font-weight: 700; color: #1a3a3a;">WHAT SETS CITY HILL APART</h1>
 <div class="apart-main">
 <div class="apart">
   <div class="media">
@@ -609,7 +767,6 @@ footer a { color: white; text-decoration: none; }
     <div class="title">Well Ordered Car Parking</div>
     <div class="desc">Comfortable on-ground and underground parking for residents — 160 total spaces in the complex for secure, easy access.</div>
     <div class="meta">
-      <div class="price">From ¢120 / mo</div>
       <!-- changed: open modal instead of location.href -->
       <a href="#sponsors"><button type="button" class="btn-apply" data-bs-toggle="modal" data-bs-target="#applyModal">Apply Now</button></a>
     </div>
@@ -625,7 +782,6 @@ footer a { color: white; text-decoration: none; }
     <div class="title">Recreation And Green  Spaces</div>
     <div class="desc">Abundant green spaces and recreational areas designed for relaxation and community activities.</div>
     <div class="meta">
-      <div class="price">From ¢150 / mo</div>
       <a href="#sponsors"><button type="button" class="btn-apply" data-bs-toggle="modal" data-bs-target="#applyModal">Apply Now</button></a>
     </div>
   </div>
@@ -640,7 +796,6 @@ footer a { color: white; text-decoration: none; }
     <div class="title">Safety 24/7</div>
     <div class="desc">Comprehensive security measures including 24-hour surveillance and controlled access.</div>
     <div class="meta">
-      <div class="price">From ¢100 / mo</div>
       <a href="#sponsors"><button type="button" class="btn-apply" data-bs-toggle="modal" data-bs-target="#applyModal">Apply Now</button></a>
     </div>
   </div>
@@ -655,7 +810,6 @@ footer a { color: white; text-decoration: none; }
     <div class="title">Sports Spaces</div>
     <div class="desc">Facilities for various sports including basketball courts and fitness areas to maintain an active lifestyle.</div>
     <div class="meta">
-      <div class="price">From ¢130 / mo</div>
      <a href="#sponsors"><button type="button" class="btn-apply" data-bs-toggle="modal" data-bs-target="#applyModal">Apply Now</button></a>
     </div>
   </div>
@@ -663,44 +817,44 @@ footer a { color: white; text-decoration: none; }
 </div>
 </div>
 <br>
-<H2 id="head3" style="font-family: fantasy" >SOME OF OUR FEATURED BUILDINGS</H2>
+<H2 id="head3" style="font-family: 'Montserrat', sans-serif; font-size: 28px; font-weight: 700; color: #1a3a3a;">SOME OF OUR FEATURED BUILDINGS</H2>
 
 <div class="main-card" style="display: flex; justify-content: center; flex-wrap: wrap;">
 <div class="card" style="width: 18rem;height: 18rem">
   <img src="pexels-expect-best-79873-323780.jpg" class="card-img-top" alt="...">
   <div class="card-body">
-    <p class="card-text">Five bedroom story building for rent in East Lagon</div>
+    <p class="card-text">Five bedroom story building for rent in East Lagon</p></div>
 </div>
 
 <div class="card" style="width: 18rem;height: 18rem">
   <img src="pexels-binyaminmellish-106399.jpg" class="card-img-top" alt="...">
   <div class="card-body">
-    <p class="card-text">Five bedroom story building for rent in East Lagon</div>
+    <p class="card-text">Five bedroom story building for rent in East Lagon</p></div>
 </div>
 
 <div class="card" style="width: 18rem;height: 18rem">
   <img src="pexels-william-lemond-25283-105933.jpg" class="card-img-top" alt="...">
   <div class="card-body">
-    <p class="card-text">Five bedroom story building for rent in East Lagon</div>
+    <p class="card-text">Five bedroom story building for rent in East Lagon</p></div>
 </div>
 
   <div class="card" style="width: 18rem;height: 17rem;">
   <img src="pexels-pixabay-164558.jpg" class="card-img-top" alt="...">
   <div class="card-body">
-    <p class="card-text">Three bedroom house for sale in Tema Comm.25</div>
+    <p class="card-text">Three bedroom house for sale in Tema Comm.25</p></div>
 </div>
 
 <div class="card" style="width: 18rem;height: 18.5rem">
   <img src="pexels-pixabay-164522.jpg" class="card-img-top" alt="...">
   <div class="card-body">
-    <p class="card-text">Four bedroom house for sale in Cantoment</div>
+    <p class="card-text">Four bedroom house for sale in Cantoment</p></div>
 </div>
 
 
 <div class="card" style="width: 18rem;height: 18rem">
   <img src="pexels-heyho-8134847.jpg" class="card-img-top" alt="...">
   <div class="card-body">
-    <p class="card-text">Two bedroom apartment for rent in Spintex</div>
+    <p class="card-text">Two bedroom apartment for rent in Spintex</p></div>
 </div>
 </div>
 <section aria-label="Newest products">
@@ -711,17 +865,17 @@ footer a { color: white; text-decoration: none; }
       <div class="carousel-inner">
 
         <div class="carousel-item active">
-          <div class="d-flex justify-content-center flex-wrap" style="background-color:#e6e3e3;padding:20px;">
+          <div class="d-flex justify-content-center flex-wrap" style="background: linear-gradient(180deg, #f5f0eb 0%, #ede6df 100%); padding:20px;">
             <div class="image m-2"><img src="1.jpg" alt="" class="img-fluid rounded" style="width:250px;height:250px;object-fit:cover;"></div>
             <div class="image m-2"><img src="3.jpg" alt="" class="img-fluid rounded" style="width:250px;height:250px;object-fit:cover;"></div>
             <div class="image m-2"><img src="4.jpg" alt="" class="img-fluid rounded" style="width:250px;height:250px;object-fit:cover;"></div>
             <div class="image m-2"><img src="5.jpg" alt="" class="img-fluid rounded" style="width:250px;height:250px;object-fit:cover;"></div>
           </div>
-         
+          
         </div>
 
         <div class="carousel-item">
-          <div class="d-flex justify-content-center flex-wrap" style="background-color:#e6e3e3;padding:20px;">
+          <div class="d-flex justify-content-center flex-wrap" style="background: linear-gradient(180deg, #f5f0eb 0%, #ede6df 100%); padding:20px;">
             <div class="image m-2"><img src="6.jpg" alt="" class="img-fluid rounded" style="width:250px;height:250px;object-fit:cover;"></div>
             <div class="image m-2"><img src="7.jpg" alt="" class="img-fluid rounded" style="width:250px;height:250px;object-fit:cover;"></div>
             <div class="image m-2"><img src="8.jpg" alt="" class="img-fluid rounded" style="width:250px;height:250px;object-fit:cover;"></div>
@@ -731,7 +885,7 @@ footer a { color: white; text-decoration: none; }
         </div>
 
  <div class="carousel-item">
-          <div class="d-flex justify-content-center flex-wrap" style="background-color:#e6e3e3;padding:20px;">
+          <div class="d-flex justify-content-center flex-wrap" style="background: linear-gradient(180deg, #f5f0eb 0%, #ede6df 100%); padding:20px;">
             <div class="image m-2"><img src="88.jpeg" alt="" class="img-fluid rounded" style="width:250px;height:250px;object-fit:cover;"></div>
             <div class="image m-2"><img src="pexels-pixabay-262047.jpg" alt="" class="img-fluid rounded" style="width:250px;height:250px;object-fit:cover;"></div>
             <div class="image m-2"><img src="Moor-Hall-Hotel-Spa-Hot-Tub-Room-188__FocusFillWyIwLjAwIiwiMC4wMCIsMTkyMCw4OTJd_ScaleMaxWidthWzE5MjBd.jpg" alt="" class="img-fluid rounded" style="width:250px;height:250px;object-fit:cover;"></div>
@@ -757,7 +911,6 @@ footer a { color: white; text-decoration: none; }
 <img src="sponsors.png" id="sponsors">
   <script type="text/javascript" src="https://form.jotform.com/jsform/252203226863553"></script>
 
-    </section>                   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   
 <style>
@@ -805,11 +958,11 @@ footer a { color: white; text-decoration: none; }
   align-items:center;
   justify-content:center;
   width:40px;height:40px;border-radius:50%;
-  background:#fff;color:#07103a;margin-right:8px;text-decoration:none;font-size:16px;
+  background:#d4af37;color:#1a3a3a;margin-right:8px;text-decoration:none;font-size:16px;
 }
 .newsletter form{ display:flex; gap:8px; margin-top:8px; }
 .newsletter input[type="email"]{ padding:10px;border-radius:6px;border:none;flex:1; min-width:0; }
-.newsletter button{ padding:10px 14px;border-radius:6px;border:none;background:#ffb400;color:#07103a;font-weight:700;cursor:pointer; }
+.newsletter button{ padding:10px 14px;border-radius:6px;border:none;background:#d4af37;color:#1a3a3a;font-weight:700;cursor:pointer; font-family: 'Montserrat', sans-serif; }
 
 .footer-bottom{
   border-top:1px solid rgba(255,255,255,0.06);
@@ -837,9 +990,6 @@ footer a { color: white; text-decoration: none; }
 
 
 </style>
-<body>
-<!-- ...existing code... -->
-
 <footer class="site-footer">
   <div class="footer-top">
     <div class="footer-brand">
@@ -924,8 +1074,43 @@ footer a { color: white; text-decoration: none; }
   </div>
 </footer>
 
-<script src="https://cdn.commoninja.com/sdk/latest/commonninja.js" defer></script>
-<div class="commonninja_component pid-24a47a69-4f40-4ae1-99a1-7dde13204cab"></div>
+<!-- ==========================================================================
+     INTERSECTIONOBSERVER MOTOR ENGINE FOR HOTEL WEBSITE
+     ========================================================================== -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Collect all targeted content blocks for structural processing
+    const animationTargets = document.querySelectorAll(
+      '.log2, .log3, .apart, .main-card .card, #carouselExampleControls .carousel-item'
+    );
+
+    // Threshold setups targeting modern viewport boundary markers
+    const scrollRevealSettings = {
+      root: null, // Scans native screen area coordinates
+      rootMargin: '0px 0px -6% 0px', // Triggers processing 6% above the physical display bottom
+      threshold: 0.04 // Fires execution loop as soon as 4% of the element layout frame enters scope
+    };
+
+    const triggerRevealCallback = (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Flatten transformations down and display properties flawlessly
+          entry.target.classList.add('scroll-reveal-active');
+          
+          // Clear targeted element map from screen registry to maximize device processing efficiency
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+
+    const visualScrollObserverInstance = new IntersectionObserver(triggerRevealCallback, scrollRevealSettings);
+
+    animationTargets.forEach(target => {
+      visualScrollObserverInstance.observe(target);
+    });
+  });
+</script>
+
 
 <script src="https://cdn.commoninja.com/sdk/latest/commonninja.js" defer></script>
 <div class="commonninja_component pid-24a47a69-4f40-4ae1-99a1-7dde13204cab"></div>
@@ -933,7 +1118,6 @@ footer a { color: white; text-decoration: none; }
 <!-- Elfsight WhatsApp Chat | Untitled WhatsApp Chat -->
 <script src="https://elfsightcdn.com/platform.js" async></script>
 <div class="elfsight-app-089ded3e-8de3-479e-9c27-fa8e4be26642" data-elfsight-app-lazy></div>
-
 
 </body>
 </html>
